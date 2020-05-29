@@ -26,7 +26,7 @@ public class DiseaseManagementCaseVO {
 	private Integer testNumber;
 	
 	@Column(name = "fk_BreakdownAnimalGroup")
-	private String breakdownAnimalGroup;
+	private Integer breakdownAnimalGroup;
 
 	/**
 	 * 
@@ -44,7 +44,7 @@ public class DiseaseManagementCaseVO {
 	 * @param breakdownAnimalGroup
 	 */
 	public DiseaseManagementCaseVO(Integer objectId, String caseNumber, String caseType, Integer testNumber,
-			String breakdownAnimalGroup) {
+			Integer breakdownAnimalGroup) {
 		super();
 		this.objectId = objectId;
 		this.caseNumber = caseNumber;
@@ -85,11 +85,11 @@ public class DiseaseManagementCaseVO {
 		this.testNumber = testNumber;
 	}
 
-	public String getBreakdownAnimalGroup() {
+	public Integer getBreakdownAnimalGroup() {
 		return breakdownAnimalGroup;
 	}
 
-	public void setBreakdownAnimalGroup(String breakdownAnimalGroup) {
+	public void setBreakdownAnimalGroup(Integer breakdownAnimalGroup) {
 		this.breakdownAnimalGroup = breakdownAnimalGroup;
 	}
 

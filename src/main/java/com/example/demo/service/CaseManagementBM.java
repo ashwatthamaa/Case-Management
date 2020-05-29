@@ -2,8 +2,6 @@ package com.example.demo.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -17,7 +15,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.demo.bean.AnimalGroupTO;
-import com.example.demo.bean.DiseaseManagementCase;
+import com.example.demo.bean.DiseaseManagementCaseRequest;
 import com.example.demo.dao.DiseaseManagementCaseDao;
 import com.example.demo.model.DiseaseManagementCaseVO;
 
@@ -35,14 +33,14 @@ public class CaseManagementBM {
 		return dao.save(new DiseaseManagementCaseVO(null, null, null, null, null)).getObjectId();
 	}
 	
-	public String createCase(DiseaseManagementCase caseInput) {
+	public String createCase(DiseaseManagementCaseRequest caseInput) {
 		Integer objectId = createEmptyCase();
 		String caseNumber = String.format("%s%s%s-%s", caseInput.getCaseType(), caseInput.getBreakdownAnimalGroup(), new SimpleDateFormat("MMyyyy").format(new Date()), objectId);
 		DiseaseManagementCaseVO caseVO = dao.findById(objectId).get();
 		caseVO.setCaseNumber(caseNumber);
 		caseVO.setCaseType(caseInput.getCaseType());
 		caseVO.setTestNumber(caseInput.getTestNumber());
-		caseVO.setBreakdownAnimalGroup(getAnimalGroupId(caseInput.getBreakdownAnimalGroup()).toString());
+		caseVO.setBreakdownAnimalGroup(getAnimalGroupId(caseInput.getBreakdownAnimalGroup()));
 		return dao.save(caseVO).getCaseNumber();
 	}
 	

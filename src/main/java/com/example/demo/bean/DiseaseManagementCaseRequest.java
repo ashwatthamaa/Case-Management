@@ -2,7 +2,7 @@ package com.example.demo.bean;
 
 import com.example.demo.model.DiseaseManagementCaseVO;
 
-public class DiseaseManagementCase {
+public class DiseaseManagementCaseRequest {
 	
 	public String caseType;
 	
@@ -13,7 +13,7 @@ public class DiseaseManagementCase {
 	/**
 	 * 
 	 */
-	public DiseaseManagementCase() {
+	public DiseaseManagementCaseRequest() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -23,15 +23,15 @@ public class DiseaseManagementCase {
 	 * @param breakdownAnimalGroup
 	 * @param testNumber
 	 */
-	public DiseaseManagementCase(String caseType, String breakdownAnimalGroup, Integer testNumber) {
+	public DiseaseManagementCaseRequest(String caseType, String breakdownAnimalGroup, Integer testNumber) {
 		super();
 		this.caseType = caseType;
 		this.breakdownAnimalGroup = breakdownAnimalGroup;
 		this.testNumber = testNumber;
 	}
 	
-	public static DiseaseManagementCase map(DiseaseManagementCaseVO caseVO) {
-		DiseaseManagementCase diseaseManagementCase = new DiseaseManagementCase();
+	public static DiseaseManagementCaseRequest map(DiseaseManagementCaseVO caseVO) {
+		DiseaseManagementCaseRequest diseaseManagementCase = new DiseaseManagementCaseRequest();
 		diseaseManagementCase.setCaseType(caseVO.getCaseType());
 		String caseNumber =  caseVO.getCaseNumber();
 		String breakdownAnimalGroupNumber = caseVO.getCaseNumber().substring(2, caseNumber.indexOf("-")-6);
