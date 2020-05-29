@@ -13,7 +13,7 @@ import com.example.demo.bean.DiseaseManagementCase;
 import com.example.demo.service.CaseManagementBM;
 
 @RestController
-@RequestMapping(value="/case-management")
+@RequestMapping(value="/case")
 public class CaseManagementController{
 	
 	@Autowired

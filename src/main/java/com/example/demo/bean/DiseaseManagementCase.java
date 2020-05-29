@@ -33,7 +33,9 @@ public class DiseaseManagementCase {
 	public static DiseaseManagementCase map(DiseaseManagementCaseVO caseVO) {
 		DiseaseManagementCase diseaseManagementCase = new DiseaseManagementCase();
 		diseaseManagementCase.setCaseType(caseVO.getCaseType());
-		diseaseManagementCase.setBreakdownAnimalGroup(caseVO.getBreakdownAnimalGroup());
+		String caseNumber =  caseVO.getCaseNumber();
+		String breakdownAnimalGroupNumber = caseVO.getCaseNumber().substring(2, caseNumber.indexOf("-")-6);
+		diseaseManagementCase.setBreakdownAnimalGroup(breakdownAnimalGroupNumber);
 		diseaseManagementCase.setTestNumber(caseVO.getTestNumber());
 		return diseaseManagementCase;
 	}
