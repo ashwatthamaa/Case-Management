@@ -47,7 +47,7 @@ public class CaseManagementBM {
 	private Integer getAnimalGroupId(String breakdownAnimalGroup) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Accept", "application/json");
-		String uri = "http://animal-group-registration/get-animal-group-details/" + breakdownAnimalGroup;
+		String uri = "http://animal-group-registration/animalGroup/" + breakdownAnimalGroup;
 		UriComponents builder = UriComponentsBuilder.fromHttpUrl(uri).build();
 		HttpEntity<String> requestEntity = new HttpEntity<String>(null, headers);
 		ResponseEntity<AnimalGroupTO> responseEntity = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, requestEntity, AnimalGroupTO.class);
